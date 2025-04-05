@@ -1607,3 +1607,340 @@ footer .footer-content {
         font-size: 0.9rem;
     }
 }
+
+/* Project Pages Responsive Styles - Without Background Elements */
+
+/* Project page header improvements */
+@media (max-width: 992px) {
+    .project-page .project-header {
+        padding: 150px 0 50px;
+    }
+    
+    .project-title {
+        font-size: 2.8rem;
+    }
+    
+    /* Project overview layout */
+    .overview-grid {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .overview-details {
+        flex: 1;
+        width: 100%;
+    }
+    
+    .overview-info {
+        flex: 1;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* Solution section adjustments */
+    .solution-image {
+        margin-top: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Further project header adjustments */
+    .project-page .project-header {
+        padding: 140px 0 40px;
+    }
+    
+    .project-title {
+        font-size: 2.3rem;
+    }
+    
+    .project-category {
+        font-size: 1rem;
+    }
+    
+    /* Section padding reduction */
+    .project-page .section {
+        padding: 60px 0;
+    }
+    
+    /* Solution list spacing */
+    .solution-list li {
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+    }
+    
+    /* View live button centering */
+    .view-live-container {
+        text-align: center;
+    }
+    
+    /* Next project section */
+    .next-project {
+        padding: 3rem 0;
+    }
+    
+    .next-link {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Smallest screen adaptations */
+    .project-page .project-header {
+        padding: 130px 0 30px;
+    }
+    
+    .project-title {
+        font-size: 2rem;
+    }
+    
+    /* Section spacing */
+    .project-page .section {
+        padding: 50px 0;
+    }
+    
+    .project-page .section-title {
+        font-size: 1.8rem;
+    }
+    
+    /* Overview layout */
+    .overview-info {
+        padding: 1.5rem;
+    }
+    
+    .info-item h3 {
+        font-size: 1rem;
+    }
+    
+    /* Solution image adjustments */
+    .solution-image .artistic-frame {
+        max-width: 100%;
+    }
+    
+    /* Next project section */
+    .next-project {
+        padding: 2.5rem 0;
+    }
+    
+    .next-title {
+        font-size: 0.8rem;
+    }
+    
+    .next-link {
+        font-size: 1.3rem;
+    }
+}
+
+/* Project image responsive optimizations */
+.solution-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Better frame content responsive behavior */
+.frame-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Improved artistic frame on mobile */
+@media (max-width: 576px) {
+    .frame-corner {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/* Optimization for interactive elements */
+@media (hover: none) {
+    .artistic-button:hover {
+        transform: none;
+    }
+    
+    .artistic-button:hover::before {
+        transform: none;
+    }
+    
+    .artistic-button:hover svg {
+        transform: none;
+    }
+}
+
+/* Solution Image Frame Fill Fix */
+
+/* Ensure solution image fills the whole frame */
+.solution-image .artistic-frame {
+    position: relative;
+    width: 100%;
+    padding-bottom: 65%; /* Adjust this ratio as needed for your images */
+    margin: 0 auto;
+}
+
+.solution-image .frame-content {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    overflow: hidden;
+}
+
+.solution-image .frame-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This makes the image cover the entire container */
+    object-position: center; /* Centers the image */
+    display: block;
+}
+
+/* Add a specific media query for larger screens if needed */
+@media (min-width: 992px) {
+    .solution-image .artistic-frame {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+}
+
+/* Make sure smaller screens maintain the aspect ratio */
+@media (max-width: 768px) {
+    .solution-image .artistic-frame {
+        padding-bottom: 70%; /* Slightly taller ratio for mobile */
+    }
+}
+
+/* Ensure frame corners position correctly */
+.solution-image .frame-corner {
+    position: absolute;
+    z-index: 2;
+}
+
+/* Featured Project Image Frame Fill Fix */
+
+/* Ensure featured image fills the whole frame */
+.featured-image .artistic-frame {
+    position: relative;
+    width: 100%;
+    padding-bottom: 65%; /* Adjust this ratio based on your images */
+    margin: 0 auto;
+}
+
+.featured-image .frame-content {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    overflow: hidden;
+}
+
+.featured-image .frame-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This makes the image cover the entire container */
+    object-position: center; /* Centers the image */
+    display: block;
+}
+
+/* Make sure project-preview images also fill their containers */
+.project-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Project card image frames */
+.project-card .image-frame {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* Ratio for project cards */
+    overflow: hidden;
+}
+
+.project-card .project-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .featured-content {
+        flex-direction: column;
+    }
+    
+    .featured-image {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+    }
+    
+    .featured-details {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .featured-image .artistic-frame {
+        padding-bottom: 70%; /* Slightly taller ratio for mobile */
+    }
+    
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Project Image Hover Effects CSS - Add to your enhanced-styles.css file */
+
+/* Image hover effects only */
+.projects-container .image-frame {
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.projects-container .project-preview {
+    transition: transform 0.5s ease;
+}
+
+.projects-container > div:hover .project-preview {
+    transform: scale(1.05);
+}
+
+/* Frame corner animations */
+.projects-container .frame-corner {
+    transition: transform 0.4s ease;
+}
+
+.projects-container > div:hover .top-left {
+    transform: translate(-3px, -3px);
+}
+
+.projects-container > div:hover .top-right {
+    transform: translate(3px, -3px);
+}
+
+.projects-container > div:hover .bottom-left {
+    transform: translate(-3px, 3px);
+}
+
+.projects-container > div:hover .bottom-right {
+    transform: translate(3px, 3px);
+}
+
+/* Ensure images fill their containers properly */
+.projects-container .project-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
