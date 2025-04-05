@@ -1107,3 +1107,91 @@ footer {
     margin-bottom: 1rem;
     line-height: 1.7;
 }
+
+/* Project Page Specific Styles */
+.project-page .project-header {
+    background-color: var(--bg-light);
+    padding: 160px 0 60px;
+    text-align: center;
+}
+
+.project-category {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.overview-grid {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.overview-details {
+    flex: 3;
+}
+
+.overview-info {
+    flex: 1;
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border-radius: 5px;
+    align-self: flex-start;
+}
+
+.info-item {
+    margin-bottom: 1.5rem;
+}
+
+.info-item p {
+    margin-bottom: 1.5rem;
+    margin-left: 1rem;
+}
+
+.info-item h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+}
+
+.solution-list {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.solution-list li {
+    margin-bottom: 0.75rem;
+}
+
+.next-project {
+    background-color: var(--bg-light);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.next-title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.next-link {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+}
+
+.next-arrow {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.next-link:hover .next-arrow {
+    transform: translateX(5px);
+}
