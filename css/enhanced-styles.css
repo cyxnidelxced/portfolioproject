@@ -757,3 +757,126 @@ footer {
     color: var(--primary-dark);
     transform: translateY(-3px);
 }
+
+
+/* Page Transitions and Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content, .project-grid, .about-content, .contact-form {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-content, .about-content {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .hero-text, .hero-image, .about-image, .about-text {
+        width: 100%;
+    }
+    
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .about-image {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .artistic-text:nth-child(2) {
+        margin-left: 1rem;
+    }
+    
+    .artistic-text:nth-child(3) {
+        margin-left: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 0;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+    }
+    
+    nav ul li {
+        margin-left: 1.5rem;
+    }
+    
+    .hero {
+        padding: 150px 0 80px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    section {
+        padding: 70px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .contact-form {
+        flex-direction: column;
+    }
+    
+    .contact-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .artistic-text:nth-child(2) {
+        margin-left: 0.5rem;
+    }
+    
+    .artistic-text:nth-child(3) {
+        margin-left: 1rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .social-icons {
+        margin-top: 1rem;
+    }
+}
