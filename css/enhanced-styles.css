@@ -911,3 +911,90 @@ footer {
     background-color: var(--primary-light);
     color: var(--accent);
 }
+
+/* About Page Specific Styles */
+.about-page .page-header {
+    background-color: var(--bg-light);
+    padding: 160px 0 60px;
+    text-align: center;
+}
+.about-page .profile-section {
+    padding-bottom: 50px;
+}
+
+.full-profile-image {
+    max-width: 500px;
+    margin: 0 auto 3rem;
+}
+
+.skills-section {
+    background-color: white;
+    padding: 80px 0;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.skill-card {
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.skill-card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.skill-card-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary);
+}
+
+.skill-list {
+    list-style: none;
+}
+
+.skill-list li {
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 25px;
+}
+
+.skill-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary);
+    border-radius: 50%;
+}
+
+.experience-section {
+    padding: 80px 0;
+}
+
+.philosophy-section {
+    padding: 80px 0;
+}
