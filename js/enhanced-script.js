@@ -305,12 +305,6 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(typeWriter, 1200);
     }
 
-    // Add these functions to your enhanced-script.js file
-
-// Mobile navigation enhancement
-document.addEventListener('DOMContentLoaded', function() {
-    // Existing code remains...
-    
     // Mobile-specific adjustments
     function handleResponsiveLayout() {
         const windowWidth = window.innerWidth;
@@ -364,5 +358,220 @@ document.addEventListener('DOMContentLoaded', function() {
         // For now, ensure mobile styles are applied
         document.body.classList.add('mobile-view');
     }
-});
+
+        // Project page specific handling
+        function handleProjectPageResponsiveness() {
+            if (!document.querySelector('.project-page')) return; // Only run on project pages
+            
+            const windowWidth = window.innerWidth;
+            
+            // Adjust solution image for better mobile display
+            if (windowWidth <= 768) {
+                const solutionImages = document.querySelectorAll('.solution-image img');
+                solutionImages.forEach(img => {
+                    // Ensure images are properly sized for mobile
+                    img.style.height = 'auto';
+                });
+            }
+            
+            // Improve transition to overview section on mobile
+            if (windowWidth <= 576) {
+                const overviewSection = document.querySelector('.project-overview');
+                if (overviewSection) {
+                    overviewSection.style.marginTop = '-20px';
+                }
+                
+                // Make solution list more readable on mobile
+                const solutionList = document.querySelectorAll('.solution-list li');
+                solutionList.forEach(item => {
+                    item.style.paddingBottom = '10px';
+                });
+            }
+            
+            // Optimize animations on mobile for better performance
+            if (windowWidth <= 992) {
+                document.querySelectorAll('.animate-float, .animate-pulse').forEach(element => {
+                    element.classList.remove('animate-float', 'animate-pulse');
+                });
+            }
+        }
+        
+        // Run on load
+        handleProjectPageResponsiveness();
+        
+        // Run on resize
+        window.addEventListener('resize', handleProjectPageResponsiveness);
+        
+        // Optimize project image loading
+        const projectImages = document.querySelectorAll('.solution-image img');
+        projectImages.forEach(img => {
+            img.addEventListener('load', function() {
+                this.classList.add('loaded');
+            });
+            
+            // Add fallback for images that may already be loaded
+            if (img.complete) {
+                img.classList.add('loaded');
+            }
+        });
+        
+        // Handle "View Live" button on mobile more elegantly
+        const viewLiveButtons = document.querySelectorAll('.view-live');
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            viewLiveButtons.forEach(button => {
+                button.addEventListener('touchstart', function() {
+                    this.classList.add('touch-active');
+                });
+                
+                button.addEventListener('touchend', function() {
+                    this.classList.remove('touch-active');
+                });
+            });
+        }
+    });
+    
+    // Add this CSS rule via JavaScript to ensure proper loading animations
+    document.addEventListener('DOMContentLoaded', function() {
+        const style = document.createElement('style');
+        style.textContent = `
+            .solution-image img {
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
+            
+            .solution-image img.loaded {
+                opacity: 1;
+            }
+            
+            @media (max-width: 768px) {
+                .view-live.touch-active {
+                    transform: translateY(-2px);
+                    box-shadow: 0 7px 20px rgba(248, 179, 197, 0.5);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+            // Fix for solution images not filling frames
+    function enhanceSolutionImages() {
+        const solutionImages = document.querySelectorAll('.solution-image img');
+        
+        solutionImages.forEach(img => {
+            // When image loads, ensure it fills the frame
+            img.addEventListener('load', function() {
+                const frameContent = this.closest('.frame-content');
+                if (frameContent) {
+                    // Ensure image fills the container
+                    this.style.width = '100%';
+                    this.style.height = '100%';
+                    this.style.objectFit = 'cover';
+                    
+                    // Add loaded class for fade-in effect
+                    this.classList.add('loaded');
+                }
+            });
+            
+            // Handle already loaded images
+            if (img.complete) {
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'cover';
+                img.classList.add('loaded');
+            }
+        });
+    }
+    
+    // Run the function
+    enhanceSolutionImages();
+    
+    // Check image dimensions and adjust container if needed
+    function adjustImageContainers() {
+        const containers = document.querySelectorAll('.solution-image .artistic-frame');
+        
+        containers.forEach(container => {
+            const img = container.querySelector('img');
+            if (img && img.complete) {
+                const imgRatio = img.naturalHeight / img.naturalWidth;
+                
+                // Check if image is landscape or portrait and adjust accordingly
+                if (imgRatio > 1.2) { // Portrait image
+                    container.style.paddingBottom = '100%'; // More square-like container
+                } else if (imgRatio < 0.6) { // Very wide landscape
+                    container.style.paddingBottom = '50%'; // Wider container
+                } else { // Standard landscape
+                    container.style.paddingBottom = '65%'; // Default container
+                }
+            }
+        });
+    }
+    
+    // Run after all images have loaded
+    window.addEventListener('load', adjustImageContainers);
+
+        // Fix for featured project image and all project cards
+        function enhanceAllProjectImages() {
+            // Handle featured image
+            const featuredImage = document.querySelector('.featured-image img');
+            if (featuredImage) {
+                featuredImage.addEventListener('load', function() {
+                    this.style.width = '100%';
+                    this.style.height = '100%';
+                    this.style.objectFit = 'cover';
+                });
+                
+                if (featuredImage.complete) {
+                    featuredImage.style.width = '100%';
+                    featuredImage.style.height = '100%';
+                    featuredImage.style.objectFit = 'cover';
+                }
+            }
+            
+            // Handle all project cards
+            const projectImages = document.querySelectorAll('.project-preview img');
+            projectImages.forEach(img => {
+                img.addEventListener('load', function() {
+                    this.style.width = '100%';
+                    this.style.height = '100%';
+                    this.style.objectFit = 'cover';
+                });
+                
+                if (img.complete) {
+                    img.style.width = '100%';
+                    img.style.height = '100%';
+                    img.style.objectFit = 'cover';
+                }
+            });
+        }
+        
+        // Run the function
+        enhanceAllProjectImages();
+        
+        // Fix for the projects container grid in work.html
+        const projectsContainer = document.querySelector('.projects-container');
+        if (projectsContainer) {
+            // Make sure the grid layout is properly applied
+            projectsContainer.style.display = 'grid';
+            projectsContainer.style.gridTemplateColumns = 'repeat(3, 1fr)';
+            projectsContainer.style.gap = '2rem';
+            
+            // Check for media query and adjust accordingly
+            function adjustProjectsGrid() {
+                if (window.innerWidth <= 768) {
+                    projectsContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
+                }
+                
+                if (window.innerWidth <= 576) {
+                    projectsContainer.style.gridTemplateColumns = '1fr';
+                }
+                
+                if (window.innerWidth > 768) {
+                    projectsContainer.style.gridTemplateColumns = 'repeat(3, 1fr)';
+                }
+            }
+            
+            // Run on load and resize
+            adjustProjectsGrid();
+            window.addEventListener('resize', adjustProjectsGrid);
+        }
+        
 });
