@@ -880,3 +880,34 @@ footer {
         margin-top: 1rem;
     }
 }
+
+/* Work Page Specific Styles */
+.work-page .page-header {
+    background-color: var(--bg-light);
+    padding: 160px 0 60px;
+    text-align: center;
+}
+
+.work-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.filter-button {
+    background: none;
+    border: none;
+    padding: 8px 20px;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 30px;
+}
+
+.filter-button:hover, .filter-button.active {
+    background-color: var(--primary-light);
+    color: var(--accent);
+}
