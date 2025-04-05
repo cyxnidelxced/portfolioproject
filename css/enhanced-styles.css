@@ -88,3 +88,38 @@ body {
     75% { transform: translate(-10px, -5px) rotate(-2deg); }
     100% { transform: translate(0, 0) rotate(0deg); }
 }
+
+/* Custom Cursor */
+.cursor-follower {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(248, 179, 197, 0.3);
+    transform: translate(-50%, -50%);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 9999;
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+    display: none;
+}
+
+/* Show cursor follower only on non-touch devices */
+@media (hover: hover) {
+    .cursor-follower {
+        display: block;
+    }
+}
+
+a, button {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    cursor: none;
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
