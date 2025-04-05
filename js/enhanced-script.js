@@ -125,16 +125,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-      
-    // Parallax effect for artistic background elements
-    if (window.matchMedia("(min-width: 992px)").matches) {
-        window.addEventListener('scroll', function() {
-            const scrollPosition = window.pageYOffset;
-            
-            document.querySelectorAll('.paint-splash').forEach((splash, index) => {
-                const speed = 0.05 + (index * 0.02);
-                splash.style.transform = `translateY(${scrollPosition * speed}px)`;
-            });
-        });
-    }
 });
