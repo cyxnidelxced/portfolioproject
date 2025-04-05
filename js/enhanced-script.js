@@ -77,3 +77,51 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // Form validation for contact form
+    const contactForms = document.querySelectorAll('.contact-form, .contact-form-full');
+    
+    contactForms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic validation
+            let isValid = true;
+            
+            this.querySelectorAll('input, textarea').forEach(field => {
+                if (field.value.trim() === '') {
+                    isValid = false;
+                    field.classList.add('error');
+                } else {
+                    field.classList.remove('error');
+                }
+                
+                // Email validation
+                if (field.type === 'email') {
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(field.value)) {
+                        isValid = false;
+                        field.classList.add('error');
+                    }
+                }
+            });
+            
+            if (isValid) {
+                // In a real application, you would send the form data to your server
+                // For this example, we'll just show a success message
+                const successMessage = document.createElement('div');
+                successMessage.className = 'success-message';
+                successMessage.textContent = 'Thank you! Your message has been sent.';
+                
+                form.parentNode.insertBefore(successMessage, form.nextSibling);
+                form.reset();
+                
+                // Remove message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.opacity = '0';
+                    setTimeout(() => {
+                        successMessage.remove();
+                    }, 500);
+                }, 5000);
+            }
+        });
+    });
