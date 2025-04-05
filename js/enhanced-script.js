@@ -304,4 +304,65 @@ document.addEventListener('DOMContentLoaded', function() {
         // Start typing after a delay
         setTimeout(typeWriter, 1200);
     }
+
+    // Add these functions to your enhanced-script.js file
+
+// Mobile navigation enhancement
+document.addEventListener('DOMContentLoaded', function() {
+    // Existing code remains...
+    
+    // Mobile-specific adjustments
+    function handleResponsiveLayout() {
+        const windowWidth = window.innerWidth;
+        
+        // Adjust header for mobile
+        if (windowWidth <= 768) {
+            // Skip typing animation on mobile for better performance
+            if (document.querySelector('.hero-description')) {
+                const description = document.querySelector('.hero-description');
+                description.style.opacity = '1';
+            }
+            
+            // Reduce animation effects on mobile for better performance
+            document.querySelectorAll('.animate-float, .animate-pulse').forEach(element => {
+                element.classList.remove('animate-float', 'animate-pulse');
+            });
+        }
+        
+        // Handle contact form layout
+        if (document.querySelector('.contact-wrapper') && windowWidth <= 992) {
+            const contactForm = document.querySelector('.contact-form-container');
+            const contactInfo = document.querySelector('.contact-info-container');
+            
+            if (contactForm && contactInfo) {
+                // Ensure proper stacking on mobile
+                contactForm.style.marginBottom = '2rem';
+            }
+        }
+        
+        // Handle about page profile section
+        if (document.querySelector('.profile-section') && windowWidth <= 768) {
+            const profileImage = document.querySelector('.full-profile-image');
+            const profileContent = document.querySelector('.profile-content');
+            
+            if (profileImage && profileContent) {
+                // Center align the profile image on mobile
+                profileImage.style.margin = '0 auto 2rem';
+            }
+        }
+    }
+    
+    // Run on load
+    handleResponsiveLayout();
+    
+    // Run on resize
+    window.addEventListener('resize', handleResponsiveLayout);
+    
+    // Simple mobile navigation toggle (can be expanded as needed)
+    if (window.matchMedia("(max-width: 576px)").matches) {
+        // Add mobile-specific event handlers if needed in future
+        // For now, ensure mobile styles are applied
+        document.body.classList.add('mobile-view');
+    }
+});
 });

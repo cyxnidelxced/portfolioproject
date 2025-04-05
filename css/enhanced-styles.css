@@ -1386,3 +1386,224 @@ nav ul li a:hover::before {
     opacity: 1;
     animation: shimmer 2s linear infinite;
 }
+
+/* Improved Responsive Styles for About and Contact Pages */
+
+/* General responsive improvements */
+@media (max-width: 992px) {
+    .container {
+        width: 90%;
+    }
+    
+    .section {
+        padding: 70px 0;
+    }
+    
+    /* Improved header for mobile */
+    header .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul {
+        padding-top: 1rem;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 0 1rem;
+    }
+}
+
+/* About page responsive improvements */
+@media (max-width: 992px) {
+    /* Profile section improvements */
+    .profile-section .container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .full-profile-image {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto 2rem;
+    }
+    
+    /* Skills grid improvements */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    /* Philosophy section text alignment */
+    .philosophy-description {
+        text-align: left;
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Further profile image adjustments */
+    .full-profile-image {
+        max-width: 300px;
+    }
+    
+    /* Education section improvements */
+    .education-section .education-item {
+        padding: 1rem;
+    }
+    
+    .degree {
+        font-size: 1.3rem;
+    }
+    
+    /* Reduce section padding */
+    .skills-section, 
+    .education-section, 
+    .philosophy-section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Skills grid for smallest screens */
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Profile bio text adjustments */
+    .profile-bio p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    /* Section title size reduction */
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    /* Degree text size reduction */
+    .degree {
+        font-size: 1.2rem;
+    }
+}
+
+/* Contact page responsive improvements */
+@media (max-width: 992px) {
+    /* Contact wrapper layout fix */
+    .contact-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .contact-form-container,
+    .contact-info-container {
+        width: 100%;
+    }
+    
+    /* Form layout improvements */
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+    
+    .submit-button {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Contact info items adjustment */
+    .info-item {
+        margin-bottom: 1.2rem;
+    }
+    
+    .info-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .info-text {
+        font-size: 1rem;
+    }
+    
+    /* Availability box padding reduction */
+    .availability-box {
+        padding: 1.5rem;
+    }
+    
+    .availability-title {
+        font-size: 1.3rem;
+    }
+    
+    /* Form styling adjustment */
+    .form-input, 
+    .form-textarea {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Contact page header spacing */
+    .contact-page .page-header,
+    .about-page .page-header {
+        padding: 130px 0 40px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .page-description {
+        font-size: 0.95rem;
+    }
+    
+    /* Form and info title size reduction */
+    .form-title,
+    .info-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Contact form container padding reduction */
+    .contact-form-container {
+        padding: 1.5rem;
+    }
+}
+
+/* Fix for missing closing div in footer */
+footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Improvements for mobile navigation */
+@media (max-width: 576px) {
+    header {
+        padding: 15px 0;
+    }
+    
+    .logo {
+        font-size: 1.6rem;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    nav ul li {
+        margin: 0 0.8rem;
+    }
+    
+    nav ul li a {
+        font-size: 0.9rem;
+    }
+}
