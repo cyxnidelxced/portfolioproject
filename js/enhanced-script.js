@@ -64,3 +64,16 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
     
+    // Add active class to navigation based on page
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('nav ul li a');
+    
+    navLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === currentPage || (currentPage === '' && linkHref === 'index.html')) {
+            link.classList.add('active');
+        } else if (currentPage.includes('project') && linkHref === 'work.html') {
+            link.classList.add('active');
+        }
+    });
+    
