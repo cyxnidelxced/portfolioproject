@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Main color palette */
+    --primary: #f8b3c5;
+    --primary-light: #ffd3e0;
+    --primary-dark: #e89aad;
+    --secondary: #a3d9ff;
+    --accent: #7a4988;
+    --text: #333333;
+    --text-light: #666666;
+    --bg-light: #fff7f9;
+    --bg-dark: #f8e9ee;
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
