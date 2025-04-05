@@ -125,4 +125,183 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Scroll animations for all elements with animated class
+    const animatedElements = document.querySelectorAll('.animated');
+    const animationObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                const animation = element.dataset.animation || 'fadeUp';
+                const delay = element.dataset.delay || 0;
+                
+                setTimeout(() => {
+                    element.style.animation = `${animation} 0.8s ease forwards`;
+                }, delay * 100);
+                
+                observer.unobserve(element);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    if (animatedElements.length > 0) {
+        animatedElements.forEach(element => {
+            animationObserver.observe(element);
+        });
+    }
+
+    // Parallax effect for hero section
+    if (document.querySelector('.hero')) {
+        const heroContent = document.querySelector('.hero-content');
+        const heroImage = document.querySelector('.hero-image');
+        
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition < 800) {
+                heroImage.style.transform = `translateY(${scrollPosition * 0.05}px)`;
+                heroContent.style.transform = `translateY(${scrollPosition * 0.02}px)`;
+            }
+        });
+    }
+
+    // Enhanced hover effect for project items
+    const projectItems = document.querySelectorAll('.project-item');
+    projectItems.forEach(item => {
+        const image = item.querySelector('.project-preview');
+        
+        item.addEventListener('mouseenter', () => {
+            if (image) {
+                image.style.transform = 'scale(1.08)';
+            }
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            if (image) {
+                image.style.transform = 'scale(1)';
+            }
+        });
+    });
+
+    // Magnetic buttons effect
+    const buttons = document.querySelectorAll('.artistic-button');
+    if (window.matchMedia('(min-width: 992px)').matches) {
+        buttons.forEach(button => {
+            button.addEventListener('mousemove', (e) => {
+                const rect = button.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                button.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) translateY(-2px)`;
+            });
+            
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'translateY(0)';
+            });
+        });
+    }
+
+    // Animated skills progress 
+    const skillItems = document.querySelectorAll('.skill-card');
+    skillItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.classList.add('animate-pulse');
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            item.classList.remove('animate-pulse');
+        });
+    });
+
+    // Enhanced form feedback
+    const formInputs = document.querySelectorAll('.form-input, .form-textarea');
+    formInputs.forEach(input => {
+        const formGroup = input.closest('.form-group');
+        
+        input.addEventListener('focus', () => {
+            if (formGroup) {
+                formGroup.classList.add('input-focused');
+            }
+        });
+        
+        input.addEventListener('blur', () => {
+            if (input.value === '' && formGroup) {
+                formGroup.classList.remove('input-focused');
+            }
+        });
+    });
+    
+    // Animate artistic divider on scroll
+    const dividers = document.querySelectorAll('.artistic-divider svg path');
+    const dividerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.strokeDasharray = "200";
+                entry.target.style.strokeDashoffset = "200";
+                entry.target.style.animation = "draw 1.5s forwards";
+                dividerObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    dividers.forEach(divider => {
+        dividerObserver.observe(divider);
+    });
+    
+    // Add this keyframe for the divider animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Page transition effect
+    const pageLinks = document.querySelectorAll('a:not([href^="#"]):not([target="_blank"])');
+    pageLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && !href.startsWith('#') && !this.hasAttribute('target')) {
+                e.preventDefault();
+                
+                const transition = document.createElement('div');
+                transition.className = 'page-transition';
+                document.body.appendChild(transition);
+                
+                setTimeout(() => {
+                    transition.classList.add('active');
+                }, 10);
+                
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 600);
+            }
+        });
+    });
+    
+    // Typing animation for hero section
+    if (document.querySelector('.hero-description')) {
+        const description = document.querySelector('.hero-description');
+        const text = description.textContent;
+        description.textContent = '';
+        description.style.opacity = '1';
+        
+        let i = 0;
+        const typingSpeed = 30; // milliseconds per character
+        
+        function typeWriter() {
+            if (i < text.length) {
+                description.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, typingSpeed);
+            }
+        }
+        
+        // Start typing after a delay
+        setTimeout(typeWriter, 1200);
+    }
 });
