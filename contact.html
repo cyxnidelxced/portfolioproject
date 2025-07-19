@@ -42,64 +42,81 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section section">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-form-container">
-                    <h2 class="form-title">Send Me a Message</h2>
-                    <form class="contact-form-full">
-                        <div class="form-group">
-                            <input type="text" id="name" class="form-input" placeholder="Your Name" required>
+           <!-- Contact Section -->
+<section class="contact-section section">
+    <div class="container">
+        <div class="contact-wrapper">
+            <div class="contact-form-container">
+                <h2 class="form-title">Send Me a Message</h2>
+                
+                <form id="contact-form" action="https://formspree.io/f/xldbkobe" method="POST">
+                    <div style="margin-bottom: 1rem;">
+                        <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 15px; border: 1px solid #e0e0e0; border-radius: 10px;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 15px; border: 1px solid #e0e0e0; border-radius: 10px;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <input type="text" name="subject" placeholder="Subject" required style="width: 100%; padding: 15px; border: 1px solid #e0e0e0; border-radius: 10px;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <textarea name="message" placeholder="Your Message" rows="5" required style="width: 100%; padding: 15px; border: 1px solid #e0e0e0; border-radius: 10px;"></textarea>
+                    </div>
+                    
+                    <input type="hidden" name="_subject" value="New message from Jessica's Portfolio">
+                    
+                    <button type="submit" style="background-color: #f8b3c5; color: white; border: none; padding: 12px 30px; border-radius: 30px; cursor: pointer;">Send Message</button>
+                </form>
+
+                <script>
+                // Check if form was just submitted
+                window.addEventListener('load', function() {
+                    if (sessionStorage.getItem('formSubmitted') === 'true') {
+                        document.getElementById('contact-form').reset();
+                        sessionStorage.removeItem('formSubmitted');
+                    }
+                });
+
+                // Mark form as submitted when user submits
+                document.getElementById('contact-form').addEventListener('submit', function() {
+                    sessionStorage.setItem('formSubmitted', 'true');
+                });
+                </script>
+                
+            </div>
+            <div class="contact-info-container">
+                <h2 class="info-title">Contact Info</h2>
+                <div class="contact-info">
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
                         </div>
-                        <div class="form-group">
-                            <input type="email" id="email" class="form-input" placeholder="Your Email" required>
+                        <p class="info-text">jttnguyen990@gmail.com</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
                         </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" class="form-input" placeholder="Subject" required>
+                        <p class="info-text">(510) 650 - 8978</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <div class="form-group">
-                            <textarea id="message" class="form-textarea" placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="artistic-button submit-button">
-                            <span>Send Message</span>
-                            <svg viewBox="0 0 46 16" height="10" width="30">
-                                <path d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
-                            </svg>
-                        </button>
-                    </form>
+                        <p class="info-text">Pleasant Hill, California</p>
+                    </div>
+                    
                 </div>
-                <div class="contact-info-container">
-                    <h2 class="info-title">Contact Info</h2>
-                    <div class="contact-info">
-                        <div class="info-item">
-                            <div class="info-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <p class="info-text">jttnguyen990@gmail.com</p>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <p class="info-text">(510) 650 - 8978</p>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <p class="info-text">Pleasant Hill, California</p>
-                        </div>
-                    </div>
-                    <div class="availability-box">
-                        <h3 class="availability-title">Current Availability</h3>
-                        <p class="availability-text">I'm currently available for freelance projects and open to discussing new opportunities.</p>
-                        <p class="availability-text">Let's create something amazing together!</p>
-                    </div>
+                <div class="availability-box">
+                    <h3 class="availability-title">Current Availability</h3>
+                    <p class="availability-text">I'm currently available for freelance projects and open to discussing new opportunities.</p>
+                    <p class="availability-text">Let's create something amazing together!</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
     
     <footer>
         <div class="container">
